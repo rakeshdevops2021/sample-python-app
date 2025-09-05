@@ -1,0 +1,20 @@
+name: Python CI using custom setup-python
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python (from fork)
+        uses: rakeshdevops2021/setup-python@v1.0.0
+        with:
+          python-version: '3.11'
+
+      - name: Run script
+        run: python app.py
